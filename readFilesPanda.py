@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+from pandas.io.json import json_normalize as json_normalise
 
 data = {
 	"One": {
@@ -37,3 +38,11 @@ print(df.to_json(orient='split'))
 print("\n")
 print(df.to_json(orient='index'))
 
+print ('\n *** Nested json parsing *** \n')
+
+with open('https://github.com/KieranAshton-de/PythonPlayground/rawData.json') as t:
+    testScores = json.load(t)
+
+normalisedDF = json_normalise(testScores['programs']) #parent mode 'programs'
+normalisedDF.head(3)
+print(normalisedDF)

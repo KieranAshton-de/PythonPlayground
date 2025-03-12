@@ -8,11 +8,11 @@
 		"Sanah": 94
 	},
 	"Paper2": {
-		"Hannah": 80,
-		"Kit": 85,
-		"Paul": 66,
-		"Sam": 85,
-		"Owen": 74,
-		"Sanah": 95
+		"Hannah": [{"Part A": 45}, {"Part B": 35}],
+		"Kit": [{"Part A": 47}, {"Part B": 38}],
+		"Paul": [{"Part A": 36}, {"Part B": 30}],
+		"Sam": [{"Part A": 56}, {"Part B": 25}],
+		"Owen": [{"Part A": 51}, {"Part B": 23}],
+		"Sanah": [{"Part A": 59}, {"Part B": 36}]
 	}
 }
