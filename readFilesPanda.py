@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 
 data = {
@@ -19,4 +20,20 @@ data = {
 	}
 }
 
-print (data)
+#print (data)
+
+jsonString = json.dumps(data)
+df_read_json = pd.read_json(jsonString, orient='index')
+#print("json dataframe: ")
+#print(df_read_json)
+
+df = pd.DataFrame([['a', 'b'], ['c', 'd']],
+				index =['row 1', 'row 2'],
+				columns = ['col 1', 'col 2'])
+print("\n df \n")
+print (df)
+print("\n")
+print(df.to_json(orient='split'))
+print("\n")
+print(df.to_json(orient='index'))
+
