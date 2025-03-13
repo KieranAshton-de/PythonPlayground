@@ -1,6 +1,6 @@
 import json
 import pandas as pd
-from pandas.io.json import json_normalize as json_normalise
+#from pandas.io.json import json_normalize # as json_normalise
 
 data = {
 	"One": {
@@ -40,9 +40,23 @@ print(df.to_json(orient='index'))
 
 print ('\n *** Nested json parsing *** \n')
 
-with open('https://github.com/KieranAshton-de/PythonPlayground/rawData.json') as t:
+with open('rawData.json') as t:
     testScores = json.load(t)
 
-normalisedDF = json_normalise(testScores['programs']) #parent mode 'programs'
-normalisedDF.head(3)
+normalisedDF = pd.json_normalize(testScores['TestResults'],
+                                 meta=['Students', 'Scores'])
+
+#columns = ['Name', 'Score']
+
+normalisedDF = normalisedDF.set_index('Student')
+normalisedDF.columns = ['Paper1', 'Paper2']
+#normalisedDF.head(3)
+#normalisedDF = pd.read_json(normalisedDF)
+
+#normalisedDF.index = 
 print(normalisedDF)
+
+
+#SectionData = json_normalize(data = d),
+#							record_path = 'sections',
+#							meta = ['Section A', 'Section B']
